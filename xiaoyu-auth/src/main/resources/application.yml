@@ -1,0 +1,29 @@
+server:
+  port: 8281
+
+# Dubbo Configuration
+dubbo:
+  application:
+    name: xiaoyu-auth
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: nacos://127.0.0.1:8848
+  scan:
+    base-packages: com.xiaoyu.auth
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.alibaba.cloud.nacos: DEBUG
+    com.alibaba.nacos: DEBUG
+    org.springframework.cloud: DEBUG

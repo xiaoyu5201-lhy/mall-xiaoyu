@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: xiaoyu-review
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+
+server:
+  port: 8981
+
+# Dubbo Configuration
+dubbo:
+  application:
+    name: xiaoyu-review
+  protocol:
+    name: dubbo
+    port: 20889
+  registry:
+    address: nacos://127.0.0.1:8848
+  scan:
+    base-packages: com.xiaoyu.review
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.alibaba.cloud.nacos: DEBUG
+    com.alibaba.nacos: DEBUG
+    org.springframework.cloud: DEBUG

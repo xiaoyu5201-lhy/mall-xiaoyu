@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: xiaoyu-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        
+server:
+  port: 8181
+
+# Dubbo Configuration
+dubbo:
+  application:
+    name: xiaoyu-gateway
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: nacos://127.0.0.1:8848
+  scan:
+    base-packages: com.xiaoyu.gateway
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.alibaba.cloud.nacos: DEBUG
+    com.alibaba.nacos: DEBUG
+    org.springframework.cloud: DEBUG
