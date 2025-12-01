@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: xiaoyu-nacos
+  cloud:
+    nacos:
+      discovery:
+        # Delay service registration
+        register-enabled: true
+        
+server:
+  port: 8081
+
+# Dubbo Configuration
+dubbo:
+  application:
+    name: xiaoyu-nacos
+  protocol:
+    name: dubbo
+    port: 20891
+  registry:
+    address: nacos://127.0.0.1:8848
+  scan:
+    base-packages: com.xiaoyu.nacos
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+# 调试日志配置（可选，用于排查问题）
+logging:
+  level:
+    com.alibaba.cloud.nacos: DEBUG
+    com.alibaba.nacos: DEBUG
+    org.springframework.cloud: DEBUG

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: xiaoyu-nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8080
+        enabled: false
+        register-enabled: false

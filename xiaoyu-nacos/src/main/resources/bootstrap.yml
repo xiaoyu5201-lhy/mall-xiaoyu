@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: xiaoyu-nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        enabled: true
+        group: DEFAULT_GROUP
+        namespace:
+        cluster-name: DEFAULT
+        # Fail fast disabled to prevent startup failure
+        fail-fast: false
+        # Delay registration to ensure client is connected
+        watch-delay: 5000
+        # Connection timeout settings
+        timeout: 30000
+        heart-beat-interval: 5000
+        heart-beat-timeout: 15000
+        # Additional connection settings
+        naming-load-cache-at-start: true
